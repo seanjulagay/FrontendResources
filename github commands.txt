@@ -1,0 +1,57 @@
+RIGHT CLICK ON WORKING FOLDER -> GIT BASH HERE:
+ - Opens git bash window
+
+INITIALIZE GIT REPO:
+ - $ git init
+ - Initializes a git repository in working folder.
+
+CONFIGURE EMAIL AND USERNAME FOR GITHUB:
+ - $ git config -global user.name "github username"
+ - $ git config -global user.email "github email"
+ - TO CHECK CONFIG: $ git config --list
+
+ADD FILES TO STAGING AREA:
+ - $ git add
+ - TO ADD ALL PROJECT FILES: $ git add .
+ - TO ADD ALL PROJECT FILES (except files starting with .): $ git add *
+ - TO ADD CERTAIN EXTENSIONS (e.g. html): $ git add *.html
+
+REMOVE FILES FROM STAGING AREA:
+ - $ git reset
+ - TO REMOVE ALL PROJECT FILES: $ git reset .
+ - TO REMOVE CERTAIN FILES (e.g. index.html): $ git reset index.html
+ - TO REMOVE ALL FILES FROM CURRENT DIRECTORY TO BELOW: $ git reset HEAD -- .
+
+TO COMMIT STAGED FILES TO LOCAL REPO:
+ - $ git commit -m "Commit message (for tracking changes)"
+ - When only using '$ git commit', a file will open asking for a git message. Uncomment "Initial commit" and add a commit message on top of the generated comments.
+
+TO ADD FILES IN DIRECTORY: 
+ - $ touch example.html
+
+TO DELETE FILES IN DIRECTORY:
+ - $ git rm example.html
+
+TO MAKE A NEW BRANCH:
+ - $ git checkout -b "newbranch"
+
+TO SWITCH BRANCHES:
+ - $ git checkout "branchname"
+
+TO CHECK BRANCH LIST:
+ - TO CHECK ALL LOCAL BRANCHES: $ git branch
+ - TO CHECK ALL REMOTE BRANCHES: $ git branch -r
+ - TO CHECK ALL BRANCHES (LOCAL & REMOTE): $git branch -a
+
+TO LINK PROJECT TO A GITHUB REPOSITORY:
+ - $ git remote add origin [GITHUB REPO LINK]
+
+TO PUSH LOCAL REPO TO REMOTE REPO (Github):
+ - $ git push -u origin master
+
+TO PULL FROM REMOTE REPO TO LOCAL REPO:
+ - $ git pull origin master
+ - TO ALLOW UNRELATED HISTORIES: $ git pull origin master --allow-unrelated-histories
+
+TO DISPLAY A LIST OF THE FILES IN LOCAL REPO:
+ - $ git ls-files
