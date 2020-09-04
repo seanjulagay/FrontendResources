@@ -289,9 +289,53 @@
 
      - Is what JS uses for **strict equality**, which means variables being tested are not converted into a common type.
 
+       - Its unequal counterpart is '!=='
+       
        ```js
        3 === 3 // true, because both are of the type int
-       3 === '3' // false, because one is int and the other is a char
+3 === '3' // false, because one is int and the other is a char
        ```
 
-       
+6. **JS Objects:**
+
+   - Contain properties and their values.
+
+   - **Do not use semicolons**. Use commas instead, and omit on the last property.
+
+     ```js
+     var myDog = {
+     	"name": "Kobi",
+     	"legs": 4,
+     	"friends": ["Minggay", "Jappy"],
+         "favorite food": "Chicken"
+     }
+     ```
+
+   - Properties can be called, but those with spaces need to use square bracket notation.
+
+     ```js
+     myDog.name; // returns "Kobi"
+     myDog["favorite food"]; // returns "Chicken"
+     ```
+
+   - To change the values of properties, simply reassign them like variables.
+
+     ```js
+     myDog.name = "Clifford"; // replaces "Kobi" with "Clifford"
+     ```
+
+   - To add a property to an existing object, do like above but use a non-existing property.
+
+     ```js
+     myDog.bark = "Woof woof!"; // adds the "bark" property to myDog
+     ```
+
+   - To delete a property from an object, use the `delete` keyword.
+
+     ```js
+     delete myDog.bark;
+     ```
+
+     
+
+    
