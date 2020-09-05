@@ -292,8 +292,8 @@
        - Its unequal counterpart is '!=='
        
        ```js
-       3 === 3 // true, because both are of the type int
-3 === '3' // false, because one is int and the other is a char
+       3 === 3 // true, because both are of the type number
+3 === '3' // false, because one is a number and the other is a string
        ```
 
 6. **JS Objects:**
@@ -336,6 +336,46 @@
      delete myDog.bark;
      ```
 
+   - To check if an object has a specific property, use the `hasOwnProperty()` method.
+
+     ```js
+     myDog.hasOwnProperty("friends"); // returns true
+     ```
+
+7. **Complex Objects:**
+
+   - Nested objects' properties can be accessed by using the bracket notation.
+
+     ```
+     var student = {
+     	1001: {
+     		"name": "John Doe",
+     		"year": 2,
+     		"gender": "male",
+     		"friends": ["Jane Doe", "Mark Zuckerberg"]
+     	},
+     	1002: {
+     		"name": "Jane Doe",
+     		"year": 3,
+     		"gender": "female",
+     		"friends": ["Tony Stark"]
+     	},
+     }
+     
+     console.log(student[1001]["gender"]); // returns male
+     student[1001]["gender"] = "female"; // changes it to female
+     ```
+
+   - *If there is no array, add an array:*
+
+     ```js
+     student[1002]["friends"] = student[1002]["friends"] || [];
+     // If there is an existing array, keep it. If there is none, initialize a new array (through || []).
+     student[1002]]["friends"].push("John Doe");
+     console.log(student[1002]["friends"]); // returns Tony and John
+     
+     // Why not student[1002]["friends"] = []? Because doing so will delete and reset the existing value/array stored already.
+     ```
+
      
 
-    
