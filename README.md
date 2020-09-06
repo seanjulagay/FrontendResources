@@ -377,5 +377,25 @@
      // Why not student[1002]["friends"] = []? Because doing so will delete and reset the existing value/array stored already.
      ```
 
+8. **Convert Number Systems:**
+
+   - To convert, for example, a binary number to an integer:
+
+     ```js
+     parseInt("10011", 2); // returns 19
+     ```
+
+   - The second parameter, 2, signifies the *radix* or the base number. 8 signifies octal, 10 signifies decimal. Refer to the *list of numeral systems* (https://en.wikipedia.org/wiki/List_of_numeral_systems) for more information. 
+
+9. **Conditional Statements:**
+
+   - For a compact if-else statement, use the **conditional statement.**
+
+   - `condition ?  return if true : return if false`
+
+     ```js
+     console.log(5 === 2 ? "It is equal" : "It is not equal"); // Prints "It is not equal"
+     ```
+
      
 
