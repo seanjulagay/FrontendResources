@@ -56,6 +56,16 @@
 
    - Might not work in some instances. It didn't load on my phone when I viewed my site through Live Server. Had to manually select individual Google Fonts. 
 
+3. **Disable user zooming:**
+
+   - Add the `user-scalable=no` property to the HTML's `meta` tag.
+
+     ```html
+     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+     ```
+
+     
+
 # CSS Stuff
 
 1. **Resets:**
@@ -203,7 +213,7 @@
 
 # SASS Stuff
 
-1. **SASS Mixins**
+1. **SASS Mixins:**
 
    - These act like functions in OOP languages. These do not have a return value. Just call them and they'll apply a style.
 
@@ -212,6 +222,25 @@
      property: $parameter;
    }
    ```
+
+2. **SASS Structuring:**
+   - 'Base' folder
+     - _globals.scss
+     - _mixins.scss
+     - _queries.scss
+     - _resets.scss
+     - _typography.scss
+     - _variables.scss
+   - 'Components' folder - for containers and individual components 
+     - _header-container.scss
+     - _main-container.scss
+     - _footer-container.scss
+   - 'Layout' folder - for semantic tags
+     - _body.scss
+     - _header.scss
+     - _main.scss
+     - _footer.scss
+   - main.scss - import everything (put queries last)
 
 # JavaScript Stuff
 
