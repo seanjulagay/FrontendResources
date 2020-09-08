@@ -64,7 +64,13 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
      ```
 
-     
+4. **Import a script to your HTML file:**
+
+   ```html
+   <script src="js/script.js"></script>
+   ```
+
+   
 
 # CSS Stuff
 
@@ -210,6 +216,19 @@
 
     - **Set Width:** Ensures a fixed width, will not adjust when screen size is larger/smaller (will have to double-check).
     - **Set Margin:** Resizes the div depending on the screen size. Pretty good as long as you pair it with `min-width` and `max-width` *(and its height counterparts).*
+    
+15. **Disable tap highlight & outline on mobile devices:**
+
+    - Mobile browsers (Chrome and apparently Safari) highlight elements on clicking. Use these to disable them:
+
+      ```css
+      button {
+      	-webkit-tap-highlight-color: transparent; // removes blue filter overlay
+      	outline: none; // removes border-like outline
+      }
+      ```
+
+    - **DISCLAIMER:** This is apparently bad for user accessibility because a.) without visual feedback, the user perception is that the app is slower (collimarco, Stack Overflow, https://stackoverflow.com/questions/21003535/anyway-to-prevent-the-blue-highlighting-of-elements-in-chrome-when-clicking-quic) and b.) it is important for users not using a mouse or those with visual impairments (http://www.outlinenone.com/). **USE AN ALTERNATE STYLING WHEN DISABLING**, such as `background-color: $new-color;` to signify feedback.
 
 # SASS Stuff
 
@@ -276,6 +295,20 @@
      ```js
      myArray.unshift("New first element");
      ```
+
+   - **Splice (remove):** allows removal of element from a given index
+
+     ```js
+     myArray.splice(i, 1); // where i is the index, 1 is the amount of elements to remove starting from the index
+     ```
+
+   - **Splice (insert):** allows adding of elements at a given index
+
+     ```js
+     myArray.splice(i, 0, "hello"); // removes 0 elements, and adds the element "hello" at index i 
+     ```
+
+     
 
 3. **Accessing elements in nested arrays:**
 
@@ -426,5 +459,87 @@
      console.log(5 === 2 ? "It is equal" : "It is not equal"); // Prints "It is not equal"
      ```
 
-     
+10. **Accessing an HTML element in Javascript:**
 
+    - Referred to as **Document Object Model (DOM)**.
+
+    - Similar to how game dev environments handle their objects (parent-child hierarchal relationships).
+
+      ```html
+      <p id="my-text">This is my text!</p>
+      
+      <script type="text/javascript">
+      	var myTextValue = document.getElementById("my-text").innerHTML;
+      </script>
+      ```
+
+    - The `.getElementById("my-text")` specifies which element is being specified, hence IDs are only truly meant for specifying elements.
+
+    - The `.innerHTML` property used in the example grabs whatever is **between the tags**, and stores it in the `var myTextValue` variable.
+
+      - "DOM manipulations using `innerHTML` are slower and more failure-prone than manipulations based on individual DOM objects" (Michael Borgwardt, Stack Overflow, https://stackoverflow.com/questions/4879066/what-innerhtml-is-doing-in-javascript). For a better way of getting text, use the `.textContent` property instead.
+
+        ```js
+        var myTextValue = document.getElementById("my-text").textContent;
+        ```
+
+11. **Convert String to a char array:**
+
+    - JS doesn't have chars, but fortunately there's an `Array.from()` function which allows String to char array conversions. This allows easy string manipulations.
+
+      ```js
+      var myString = "Hey";
+      var myArray = Array.from(myString);
+      
+      console.log(myArray); // returns ['H', 'e', 'y']
+      ```
+
+12. **Convert char array to String:**
+
+    - After manipulating the char array, you would want to return it into a String.
+
+      ```
+      var myString2 = myArray.join(""); // returns "Hey"
+      
+      // No parameters returns the string with ',' between characters.
+      
+      var myString = myArray.join(); // returns "H,e,y"
+      ```
+
+13. **Adding an event listener:**
+
+    - Note: do not include parentheses on the function call because it would mean you are invoking it immediately rather than referencing it.
+
+      ```js
+      document.getElementById("myElement").addEventListener("click", myFunction);	
+      ```
+
+14. **To know which element was triggered through addEventListener:**
+
+    - Use the the `event` object and use its `target` property. Then use the `id` property to get its ID.
+
+      ```js
+      document.getElementById("myElement").addEventListener("click", myFunction);
+      
+      function myFunction() {
+      	console.log(event.target.id); // returns the id of the triggered element
+      }
+      ```
+
+15. **Give every element in a class an event listener:**
+
+    - ```js
+      Array.from(document.getElementsByClassName("myElements")).forEach(function(element) {
+          element.addEventListener('click', functionToCall);
+      });
+      
+      // Creates an array from every element with class "myElements", then executes a forEach loop, with a function that passes every element. Each individual element is then added an event listener, leading to a function.
+      
+      // Bonus chained code:
+      
+      function functionToCall() {
+      	console.log(event.target.id); // Returns the id of the triggered element under the class "myElements"
+      }
+      ```
+
+      
