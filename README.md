@@ -566,4 +566,14 @@
       console.log({var1, var2}); // returns {var1: 1, var2: 2}
       ```
 
+18. **Check if array includes a certain value:**
+
+    - *or* checking if a value is present in an array
+
+      ```js
+      var myArray = ["a", "b", "c"];
+      var varToCompare = "a";
       
+      return myArray.includes(varToCompare); // returns true
+      ```
+
