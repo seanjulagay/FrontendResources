@@ -308,7 +308,9 @@
      myArray.splice(i, 0, "hello"); // removes 0 elements, and adds the element "hello" at index i 
      ```
 
-     
+   - **To clear an array:**
+     - Use `myArray.length = 0` instead of `myArray = []`.
+     - This is perfect if you don't have **references to the original array `myArray`** anywhere else because this actually creates a brand new (empty) array. You should be careful with this method because if you have referenced this array from another variable or property, the original array will remain unchanged. Only use this if you only reference the array by its original variable `myArray`.  (Philippe Leybaert, Stack Overflow, https://stackoverflow.com/questions/1232040/how-do-i-empty-an-array-in-javascript)
 
 3. **Accessing elements in nested arrays:**
 
@@ -336,12 +338,14 @@
    }
    ```
 
-4. **Equality:**
+5. **Equality:**
 
    - **'==':**
 
      - Is what JS uses to compare/work on variables with different data types through *type coercion* (matching data types with each other).
 
+       - Its **inequality** counterpart is the '!='
+       
        ```js
        "3" == 3 // true, despite string and int comparison
        1 == '1' // true, despite int and char comparison
@@ -351,11 +355,11 @@
 
      - Is what JS uses for **strict equality**, which means variables being tested are not converted into a common type.
 
-       - Its unequal counterpart is '!=='
+       - Its **strict inequality** counterpart is '!=='
        
        ```js
        3 === 3 // true, because both are of the type number
-3 === '3' // false, because one is a number and the other is a string
+   3 === '3' // false, because one is a number and the other is a string
        ```
 
 6. **JS Objects:**
@@ -540,6 +544,26 @@
       function functionToCall() {
       	console.log(event.target.id); // Returns the id of the triggered element under the class "myElements"
       }
+      ```
+
+16. **Use ASCII characters in JS:**
+
+    - Use the `String.fromCharCode()` function
+
+      ```js
+      var myChar = String.fromCharCode(69); // accepts a decimal value
+      console.log(myChar); // returns 'E'
+      ```
+
+17. **Easily track variables on console:**
+
+    - Use curly braces between the variable calls.
+
+      ```
+      var var1 = 1;
+      var var2 = 2;
+      
+      console.log({var1, var2}); // returns {var1: 1, var2: 2}
       ```
 
       
