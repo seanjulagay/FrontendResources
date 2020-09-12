@@ -408,6 +408,16 @@
      myDog.hasOwnProperty("friends"); // returns true
      ```
 
+   - To check if an object has a specific value, use `Object.values(obj).includes(var)`
+
+     ```js
+     petOwnersAndDogs = {"John": "Charlie", "Jane": "Max"};
+     
+     var doIKnowThisDog = Object.values(petOwnersAndDogs).includes("Charlie"); //returns true
+     ```
+
+     
+
 7. **Complex Objects:**
 
    - Nested objects' properties can be accessed by using the bracket notation.
@@ -498,6 +508,15 @@
       console.log(myArray); // returns ['H', 'e', 'y']
       ```
 
+    - There is also the `myString.split("")` function.
+
+      ```
+      myArray = myString.split("");
+      console.log(myArray); // returns the same array as above
+      ```
+
+      
+
 12. **Convert char array to String:**
 
     - After manipulating the char array, you would want to return it into a String.
@@ -570,6 +589,8 @@
 
     - *or* checking if a value is present in an array
 
+    - **NOTE:** object counterpart is `.hasOwnProperty()`
+    
       ```js
       var myArray = ["a", "b", "c"];
       var varToCompare = "a";
@@ -577,3 +598,70 @@
       return myArray.includes(varToCompare); // returns true
       ```
 
+19. **Join Strings together:**
+
+    - Use the `.concat()` method
+
+      ```js
+      var str = "Hello ";
+      var str2 = "world";
+      console.log(str.concat(str2)); // returns "Hello world"
+      ```
+
+20. **Get the data type of a given variable:**
+
+    - Use the `typeof()` method
+
+      ```js
+      console.log(typeof("Hello world!")); // returns String
+      ```
+
+21. **Passing arrays (and objects?) pass references, not values:**
+
+    - Only works on arrays and objects (?), variables are safe. (phew)
+
+      ```JS
+      var myArray1 = ["Dog", "Cat"];
+      var myArray2 = myArray1;
+      
+      myArray1.push("Bird");
+      
+      console.log(myArray2); // returns ["Dog", "Cat", "Bird"]
+      
+      var myNum1 = 1;
+      var myNum2 = 2;
+      
+      myNum2 = myNum1;
+      
+      myNum1 = 3;
+      
+      console.log(myNum2); // returns 1 :-D
+      ```
+
+    - To get around this, use the `slice()` function
+
+      ```js
+      var clone = original.slice(0);
+      ```
+
+    - Reference: https://stackoverflow.com/questions/14491405/javascript-passing-arrays-to-functions-by-value-leaving-original-array-unaltere
+
+22. **Parse Integer and To String Methods:**
+
+    - Use `parseInt()` to turn String into a number
+
+      ```js
+      var myNumber = parseInt("23");
+      
+      console.log(myNumber); // returns 23
+      ```
+
+    - Use `toString()` to turn number into String
+
+      ```js
+      var myString = myNumber.toString();
+      
+      console.log(myNumber); // returns "23"
+      ```
+
+      
