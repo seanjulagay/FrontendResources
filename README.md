@@ -81,12 +81,12 @@
      box-sizing: border-box;
      -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
+     margin: 0;
+     padding: 0;
    }
    
    body, html {
      height: 100%;
-     margin: 0;
-     padding: 0;
      font-size: 62.5%;
    }
    ```
@@ -229,6 +229,19 @@
       ```
 
     - **DISCLAIMER:** This is apparently bad for user accessibility because a.) without visual feedback, the user perception is that the app is slower (collimarco, Stack Overflow, https://stackoverflow.com/questions/21003535/anyway-to-prevent-the-blue-highlighting-of-elements-in-chrome-when-clicking-quic) and b.) it is important for users not using a mouse or those with visual impairments (http://www.outlinenone.com/). **USE AN ALTERNATE STYLING WHEN DISABLING**, such as `background-color: $new-color;` to signify feedback.
+
+16. **Remove default button styling:**
+
+    - To remove default button styles, set `background: none;` and `border: none`
+
+      ```css
+      button {
+      	background: none;
+      	border: none;
+      }
+      ```
+
+      
 
 # SASS Stuff
 
@@ -664,4 +677,6 @@
       console.log(myNumber); // returns "23"
       ```
 
-      
+23. **Access local files and images in JS:**
+    - File paths that go "../testfolder/myImage.jpg" ask the site to do "http://mysite/testfolder/myImage.jpg" instead. To access files or images like this in the directory folders, add a **tilde** before it.
+    - "~/../testfolder/myImage.jpg"
