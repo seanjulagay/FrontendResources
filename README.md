@@ -509,6 +509,14 @@
         ```js
         var myTextValue = document.getElementById("my-text").textContent;
         ```
+      
+    - You may also use `querySelector()`
+
+      ```js
+      var elementID = document.querySelector(#myElement);
+      var elementClass = document.querySelector(.myElement); // returns single element with class myElement
+      var elementClassAll = document.querySelectorAll(.myElement); // returns all elements with class myElement
+      ```
 
 11. **Convert String to a char array:**
 
@@ -680,3 +688,15 @@
 23. **Access local files and images in JS:**
     - File paths that go "../testfolder/myImage.jpg" ask the site to do "http://mysite/testfolder/myImage.jpg" instead. To access files or images like this in the directory folders, add a **tilde** before it.
     - "~/../testfolder/myImage.jpg"
+
+24. **Template Literals:**
+
+    - Works the same as concatenated strings `console.log("My variable is: " + myVar);`, but is cleaner and is an ES6 feature.
+
+      ```
+      var myVar = "world";
+      console.log(`Hello ${myVar}!`); // Returns "Hello world"
+      ```
+
+
+
