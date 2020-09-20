@@ -693,10 +693,29 @@
 
     - Works the same as concatenated strings `console.log("My variable is: " + myVar);`, but is cleaner and is an ES6 feature.
 
-      ```
+      ```js
       var myVar = "world";
       console.log(`Hello ${myVar}!`); // Returns "Hello world"
       ```
 
+      
 
+25. **Audio and Video methods (DOM):**
+
+    - `.play()` and `.pause()` methods play and pause the current video or audio element.
+
+      ```js
+      const myAudio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+      
+      myAudio.play(); // plays audio
+      myAudio.pause(); // pauses audio
+      ```
+
+    - The `.currentTime` property sets the time of the audio/video element
+
+      ```js
+      myAudio.currentTime = 0; // resets the audio from the start
+      ```
+
+        
 
