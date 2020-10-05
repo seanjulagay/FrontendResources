@@ -78,23 +78,28 @@
 
    ```css
    * {
-       box-sizing: border-box;
-       -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-       -webkit-tap-highlight-color: transparent;
-       user-select: none; // COMPENSATE ELEMENT VISUAL FEEDBACK
+     box-sizing: border-box;
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+     -webkit-tap-highlight-color: transparent;
+     user-select: none;
+     &:focus {
+       outline: none;
+     }
    }
-     
+   
    body, html {
-       height: 100%;
-       margin: 0;
-       padding: 0;
-       font-size: 62.5%;
+     height: 100%;
+     margin: 0;
+     padding: 0;
+     font-size: 62.5%;
    }
    ```
 
    - `box-sizing: border-box` allows margin and padding to be a part of a component's overall size *(this means the component no longer resizes when applying a margin/padding)*
    - `-webkit-tap-highlight-color: transparent` and `user-select: none` removes element visual feedback for Chromium-based browsers. Be sure to compensate for it by animating/designing your elements.
+   - `outline: none` removes the orange visual feedback for buttons on Chrome Android.
    - `margin: 0` and `padding: 0` removes default margin and padding from elements.
    - `font-size: 62.5%` turns the font-size to 10px, which is much easier to calculate with when using font size-based measurements *(rem and em)*
 
